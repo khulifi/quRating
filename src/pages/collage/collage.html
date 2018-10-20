@@ -1,0 +1,30 @@
+<!--
+  Generated template for the CollagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{collage.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list *ngIf="collage.collages">
+  <ion-item *ngFor="let item of collage.collages">
+
+  <ion-card (click)="goto(item)">
+    <img src="{{item.imgPath}}"/>
+    <div class="card-title">{{item.name}}</div>
+  </ion-card>
+
+</ion-item>
+</ion-list>
+
+
+</ion-content>
