@@ -8,6 +8,10 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { CollegePage } from '../pages/college/college';
 import { DoctorPage } from '../pages/doctor/doctor';
+import { RatePage } from '../pages/rate/rate';
+import { AddDoctorPage } from '../pages/add-doctor/add-doctor';
+
+
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -22,7 +26,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     CollegePage,
     TabsPage,
-    DoctorPage
+    DoctorPage,
+    RatePage,
+    AddDoctorPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     CollegePage,
-    DoctorPage
+    DoctorPage,
+    RatePage,
+    AddDoctorPage
   ],
   providers: [
     StatusBar,

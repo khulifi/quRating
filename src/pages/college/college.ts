@@ -15,20 +15,18 @@ import {DoctorPage} from '../doctor/doctor'
   templateUrl: 'college.html',
 })
 export class CollegePage {
-college;
+section;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.college = this.navParams.get('college');
-    console.log(this.college )
+    this.section = this.navParams.get('section');
+    console.log(this.section )
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CollegePage');
   }
-goto(page){
-console.log(page.name)
+gotoDoctor(collegeRef){
 this.navCtrl.push(DoctorPage,{
-  'college': page,
-  'asim': "4343"
+  'college': collegeRef,
 })
 
 }}

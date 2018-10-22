@@ -7,12 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{college.name}}</ion-title>
+    <ion-title>{{college.collegeName}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
+  <button ion-button (click)="gotoAddDoctor()" color="dark" round icon-start>
+    <ion-icon name='add' is-active="false"></ion-icon>
+    Add Doctor
+  </button>
+    <ion-list *ngIf="college.Doctor">
+      <ion-item *ngFor="let item of college.Doctor">
+    
+      <ion-card (click)="gotoRate(item)">
+        <img src="{{item.imgPath}}"/>
+        <div class="card-title">{{item}}</div>
+      </ion-card>
+    
+    </ion-item>
+  </ion-list>
 </ion-content>

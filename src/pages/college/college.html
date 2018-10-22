@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{college.title}}</ion-title>
+    <ion-title>{{section.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,12 +15,12 @@
 
 <ion-content padding>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list *ngIf="college.colleges">
-  <ion-item *ngFor="let item of college.colleges">
+<ion-list *ngIf="section.colleges">
+  <ion-item *ngFor="let item of section.colleges">
 
-  <ion-card (click)="goto(item)">
+  <ion-card (click)="gotoDoctor(item)">
     <img src="{{item.imgPath}}"/>
-    <div class="card-title">{{item.name}}</div>
+    <div class="card-title">{{item.collegeName}}</div>
   </ion-card>
 
 </ion-item>

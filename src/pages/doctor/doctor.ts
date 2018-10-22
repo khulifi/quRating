@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RatePage } from '../rate/rate';
+import { AddDoctorPage } from '../add-doctor/add-doctor';
+
 
 /**
  * Generated class for the DoctorPage page.
@@ -18,16 +21,20 @@ export class DoctorPage {
 college;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.college = this.navParams.get('college')
-    // console.log(this.navParams.get('asim'))
-
-    this.navCtrl.pop().then(()=>{
-
-    })
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorPage');
   }
-
+  gotoRate(DoctorRef){
+    this.navCtrl.push(RatePage,{
+      'doctor': DoctorRef,
+    })
+  }
+    gotoAddDoctor(){
+      this.navCtrl.push(AddDoctorPage,{
+       
+      })
+      
+      }
 }
