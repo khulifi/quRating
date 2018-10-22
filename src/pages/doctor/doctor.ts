@@ -15,9 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DoctorPage {
 
-collage;
+college;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.collage = this.navParams.get('collage')
+    this.college = this.navParams.get('college')
     // console.log(this.navParams.get('asim'))
 
     this.navCtrl.pop().then(()=>{

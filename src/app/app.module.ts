@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { CollagePage } from '../pages/collage/collage';
+import { CollegePage } from '../pages/college/college';
 import { DoctorPage } from '../pages/doctor/doctor';
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -20,7 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    CollagePage,
+    CollegePage,
     TabsPage,
     DoctorPage
   ],
@@ -35,7 +35,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    CollagePage,
+    CollegePage,
     DoctorPage
   ],
   providers: [

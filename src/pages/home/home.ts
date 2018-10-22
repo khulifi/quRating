@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {AboutPage} from '../about/about'
-import {CollagePage} from '../collage/collage'
+import {CollegePage} from '../college/college'
 
 @Component({
   selector: 'page-home',
@@ -14,24 +14,24 @@ export class HomePage {
 
 section= [{
   title: "الكليات العلمية",
-  collages:[{name:" حاسب"},{name:" هندسة"},{name:" ادارة"}],
+  colleges:[{name:" حاسب"},{name:" هندسة"},{name:" ادارة"}],
   id:2
 },{
   title: "الشرعية",
-  collages:[{name:" قانون"},{name:" دراسات"},{name:" شريعة"}],
+  colleges:[{name:" قانون"},{name:" دراسات"},{name:" شريعة"}],
   id:1
 },{
   title: "الصحية",
-  collages:[{name:" أسنان"},{name:" بشري"},{name:" صيدلة"}],
+  colleges:[{name:" أسنان"},{name:" بشري"},{name:" صيدلة"}],
   id:3
 }]
   constructor(public navCtrl: NavController) {
   }
 
 
-  goto(collagew, dddd){
-    this.navCtrl.push(CollagePage,{
-      'collage': collagew
+  goto(collegew, dddd){
+    this.navCtrl.push(CollegePage,{
+      'college': collegew
     })
   }
 
