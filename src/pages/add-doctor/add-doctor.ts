@@ -14,7 +14,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-doctor.html',
 })
 export class AddDoctorPage {
-
+  doctorName;
+  courseLabel;
+  dealing;
+  dealingText;
+  behavior;
+  behaviorText;
+  exams;
+  examsText;
+  attendance;
+  attendanceText;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
