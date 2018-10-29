@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the AddDoctorPage page.
@@ -24,11 +25,20 @@ export class AddDoctorPage {
   examsText;
   attendance;
   attendanceText;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddDoctorPage');
+  }
+  saveData(){
+    console.log('Data Saved');
+    this.storage.set('dealingText',this.dealingText);
+    this.storage.set('behaviorText',this.behaviorText);
+    this.storage.set('examsText',this.examsText);
+    this.storage.set('attendanceText',this.attendanceText);
   }
 
 }

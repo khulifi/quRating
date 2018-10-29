@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddDoctorPage } from '../add-doctor/add-doctor';
+import { Storage } from '@ionic/storage';
+
 
 /**
  * Generated class for the RatePage page.
@@ -17,8 +19,28 @@ import { AddDoctorPage } from '../add-doctor/add-doctor';
 export class RatePage {
 
   doctor;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  dealingText;
+  behaviorText;
+  examsText;
+  attendanceText
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {
     this.doctor = this.navParams.get('doctor')
+    
+    storage.get('dealingText').then((val) => {
+      this.dealingText=val;
+    });
+
+    storage.get('behaviorText').then((val) => {
+      this.behaviorText=val;
+    });
+
+    storage.get('examsText').then((val) => {
+      this.examsText=val;
+    });
+
+    storage.get('attendanceText').then((val) => {
+      this.attendanceText=val;
+    });
   }
 
   ionViewDidLoad() {
