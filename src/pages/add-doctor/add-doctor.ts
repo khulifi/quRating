@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { wComment } from '../../app/models/Comment';
 
 /**
  * Generated class for the AddDoctorPage page.
@@ -14,7 +15,9 @@ import { Storage } from '@ionic/storage';
   selector: 'page-add-doctor',
   templateUrl: 'add-doctor.html',
 })
+
 export class AddDoctorPage {
+  doctors:string[] = [];
   doctorName;
   courseLabel;
   dealing;
@@ -25,20 +28,51 @@ export class AddDoctorPage {
   examsText;
   attendance;
   attendanceText;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {
 
+
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    this.doctors = this.navParams.get('doctors');
+    this.doctorName = this.doctors[0];
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddDoctorPage');
   }
-  saveData(){
-    console.log('Data Saved');
-    this.storage.set('dealingText',this.dealingText);
-    this.storage.set('behaviorText',this.behaviorText);
-    this.storage.set('examsText',this.examsText);
-    this.storage.set('attendanceText',this.attendanceText);
+  saveData() {
+  
+    let comment: wComment = new wComment(this.dealing, this.dealingText, this.behavior, this.behaviorText, this.exams, this.examsText, this.attendance, this.attendanceText)
+
+    let commentsArr: wComment[];
+    this.storage.get(this.doctorName).then((arrData) => {
+      commentsArr = arrData;
+    }).then(() => {
+
+      if (commentsArr) {
+        commentsArr.push(comment);
+        this.storage.set(this.doctorName, commentsArr).then(() => {
+          console.log("data saved: commentsArray");
+
+        })
+      } else {
+        let newCommentArray: wComment[] = [];
+        newCommentArray.push(comment);
+        this.storage.set(this.doctorName, newCommentArray).then((da) => {
+          console.log("data saved: commentsArray");
+console.log(da);
+
+        })
+      }
+
+    }).then(() =>{
+      this.navCtrl.pop()
+    })
+
+
+
   }
 
 }

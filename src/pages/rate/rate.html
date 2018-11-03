@@ -8,13 +8,13 @@
 
   <ion-navbar>
 
-      <ion-buttons end>
-          <button ion-button icon-only (click)="gotoAddDoctor()" >
-            <ion-icon name="add"></ion-icon>
-          </button>
-        </ion-buttons>
-    <ion-title text-center	>{{doctor}}</ion-title>
-    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="gotoAddDoctor(doctorName)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{doctorName}}</ion-title>
+
 
   </ion-navbar>
 
@@ -23,100 +23,106 @@
 
 <ion-content padding>
 
-    <ion-list>
-    
-          <ion-card>
-            <ion-item>
-                <ion-label text-center>التعامل</ion-label>
-            </ion-item>
-    
-            <ion-item>
-                <ion-range [(ngModel)]="dealing" max="5" pin="true"  >
-                  <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
-                  <ion-icon range-right name="ios-thumbs-up"></ion-icon>
-                </ion-range>
-            </ion-item>
-      
-          </ion-card>
-    
-          <ion-card>
-              <ion-item>
-                  <ion-label text-center>الشرح</ion-label>
-              </ion-item>
-      
-              <ion-item>
-                  <ion-range [(ngModel)]="behavior" max="5" pin="true"  >
-                    <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
-                    <ion-icon range-right name="ios-thumbs-up"></ion-icon>
-                  </ion-range>
-              </ion-item>
-          
-            </ion-card>
-    
-            <ion-card>
-                <ion-item>
-                    <ion-label text-center>الإختبارات</ion-label>
-                </ion-item>
-        
-                <ion-item>
-                    <ion-range [(ngModel)]="exams" max="5" pin="true"  >
-                      <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
-                      <ion-icon range-right name="ios-thumbs-up"></ion-icon>
-                    </ion-range>
-                </ion-item>
-        
-              </ion-card>
-        
-              <ion-card>
-                  <ion-item>
-                      <ion-label text-center>مرونة التحضير</ion-label>
-                  </ion-item>
-          
-                  <ion-item>
-                      <ion-range [(ngModel)]="attendance" max="5" pin="true"  >
-                        <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
-                        <ion-icon range-right name="ios-thumbs-up"></ion-icon>
-                      </ion-range>
-                  </ion-item>
-          
+  <ion-list>
+    <label *ngFor="let singleComment of commentsArray">
 
-          
-                </ion-card>
-    
-                <ion-item>
-                  <ion-label text-center>التعليقات</ion-label>
-                </ion-item>
+      <ion-card>
+        <ion-item>
+          <ion-label text-center>التعامل</ion-label>
+        </ion-item>
 
-                <ion-label text-center>التعامل</ion-label>
+        <ion-item>
+          <ion-range [(ngModel)]="singleComment.dealing" max="5" pin="true">
+            <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
+            <ion-icon range-right name="ios-thumbs-up"></ion-icon>
+          </ion-range>
+        </ion-item>
 
-                <ion-item>
+      </ion-card>
 
-                  <p text-center>{{dealingText}}</p>
+      <ion-card>
+        <ion-item>
+          <ion-label text-center>الشرح</ion-label>
+        </ion-item>
 
-                </ion-item> 
-                
-                <ion-label text-center>الشرح</ion-label>
+        <ion-item>
+          <ion-range [(ngModel)]="singleComment.behavior" max="5" pin="true">
+            <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
+            <ion-icon range-right name="ios-thumbs-up"></ion-icon>
+          </ion-range>
+        </ion-item>
 
-                <ion-item>
+      </ion-card>
 
-                  <p text-center>{{behaviorText}}</p>
+      <ion-card>
+        <ion-item>
+          <ion-label text-center>الإختبارات</ion-label>
+        </ion-item>
 
-                </ion-item> 
-                <ion-label text-center>الإختبارات</ion-label>
+        <ion-item>
+          <ion-range [(ngModel)]="singleComment.exams" max="5" pin="true">
+            <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
+            <ion-icon range-right name="ios-thumbs-up"></ion-icon>
+          </ion-range>
+        </ion-item>
 
-                <ion-item>
+      </ion-card>
 
-                  <p text-center>{{examsText}}</p>
+      <ion-card>
+        <ion-label text-center>مرونة التحضير</ion-label>
 
-                </ion-item> 
-                <ion-label text-center>مرونة التحضير</ion-label>
+        <ion-item>
+          <ion-range [(ngModel)]="singleComment.attendance" max="5" pin="true">
+            <ion-icon range-left small name="ios-thumbs-down"></ion-icon>
+            <ion-icon range-right name="ios-thumbs-up"></ion-icon>
+          </ion-range>
+        </ion-item>
 
-                <ion-item>
 
-                  <p text-center>{{attendanceText}}</p>
 
-                </ion-item> 
-      </ion-list>
-    
+      </ion-card>
+
+
+
+      <ion-card>
+        <ion-label text-center>التعامل:
+
+          {{singleComment.dealingText}}
+        </ion-label>
+
+
+
+
+
+        <ion-label text-center>الشرح
+
+          {{singleComment.behaviorText}}
+        </ion-label>
+
+
+
+
+
+        <ion-label text-center>الإختبارات
+          {{singleComment.examsText}}
+
+        </ion-label>
+
+
+
+
+
+        <ion-label text-center>مرونة التحضير
+          {{singleComment.attendanceText}}
+
+        </ion-label>
+
+
+
+      </ion-card>
+
+    </label>
+  </ion-list>
+
 
 </ion-content>

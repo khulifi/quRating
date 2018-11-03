@@ -15,8 +15,14 @@
 
 <ion-content padding>
 
+
   <ion-item>
-    <ion-input [(ngModel)]="doctorName"text-right type="text" placeholder="اسم الدكتور"></ion-input>
+    <ion-label></ion-label>
+    <ion-select [(ngModel)]="doctorName" placeholder="اسم الدكتور">
+      <ion-option *ngFor="let doctor of doctors" >{{doctor}}</ion-option>
+      
+
+    </ion-select>
   </ion-item>
 
   <ion-list>

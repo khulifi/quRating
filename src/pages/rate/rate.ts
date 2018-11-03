@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddDoctorPage } from '../add-doctor/add-doctor';
 import { Storage } from '@ionic/storage';
+import { wComment } from '../../app/models/Comment';
+
 
 
 /**
@@ -17,38 +19,24 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'rate.html',
 })
 export class RatePage {
-
-  doctor;
-  dealingText;
-  behaviorText;
-  examsText;
-  attendanceText
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {
-    this.doctor = this.navParams.get('doctor')
-    
-    storage.get('dealingText').then((val) => {
-      this.dealingText=val;
-    });
-
-    storage.get('behaviorText').then((val) => {
-      this.behaviorText=val;
-    });
-
-    storage.get('examsText').then((val) => {
-      this.examsText=val;
-    });
-
-    storage.get('attendanceText').then((val) => {
-      this.attendanceText=val;
+  doctorName;
+  commentsArray:wComment[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {    
+    this.doctorName = this.navParams.get('doctor')
+    storage.get(this.doctorName).then((val) => {
+      console.log(val);
+      
+      this.commentsArray=val;
     });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RatePage');
   }
-  gotoAddDoctor(){
+  gotoAddDoctor(dname){
     this.navCtrl.push(AddDoctorPage,{
-     
+      'doctors': [this.doctorName],
+
     })
     
     }

@@ -31,9 +31,10 @@ college;
       'doctor': DoctorRef,
     })
   }
-    gotoAddDoctor(){
+    gotoAddDoctor(DoctorRef){
       this.navCtrl.push(AddDoctorPage,{
-       
+        'doctors': DoctorRef,
+
       })
       
       }
